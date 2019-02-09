@@ -66,21 +66,14 @@ int main(int arcg, char *argv[])
 	// triangle
 	float Vertices[]
 	{
-		/*-1.0f, 0.5f, 0.0f,
-		-0.5f, 0.5f, 0.0f,
-		0.5f, 0.5f, 0.0f,
 
-		1.0f, 0.25f, 0.0f,
-		0.25f, 0.25f, 0.0f,
-		-0.25f, 0.25f, 0.0f*/
-
-		-1.0f, 1.0f,0.0f,
+		-0.5f, 1.0f,0.0f,
 		0.0f,0.0f,0.0f,
 		-1.0, 0.0f,0.0f,
 
-		1,1,0,
-		1,0,0,
-		0,0,0
+		1.0f, 1.0f, 0.0f,
+		1.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 0.0f
 	};
 
 	GLuint VertexBufferObject = 0;
@@ -108,7 +101,7 @@ int main(int arcg, char *argv[])
 		"#version 450\n"
 		"out vec4 frag_colour;"
 		"void main() {"
-		"  frag_colour = vec4(0.0, 0.95, 0.0, 1.0);"
+		"  frag_colour = vec4(1.0, 1.0, 0.0, 1.0);"
 		"}";
 
 	GLuint VertexShader = glCreateShader(GL_VERTEX_SHADER);
