@@ -8,6 +8,7 @@
 #include <iostream>
 #include <ostream>
 #include <string>
+#include "Mesh.h"
 
 using namespace std;
 
@@ -45,6 +46,7 @@ void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const string &
 
 int main(int arcg, char *argv[])
 {
+
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	openGL();
@@ -66,15 +68,24 @@ int main(int arcg, char *argv[])
 	// triangle
 	float Vertices[]
 	{
+		/*-1.0f, 0.5f, 0.0f,
+		-0.5f, 0.5f, 0.0f,
+		0.5f, 0.5f, 0.0f,
 
-		-0.5f, 1.0f,0.0f,
+		1.0f, 0.25f, 0.0f,
+		0.25f, 0.25f, 0.0f,
+		-0.25f, 0.25f, 0.0f*/
+
+		-1.0f, 1.0f,0.0f,
 		0.0f,0.0f,0.0f,
 		-1.0, 0.0f,0.0f,
 
-		1.0f, 1.0f, 0.0f,
-		1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 0.0f
+		1,1,0,
+		1,0,0,
+		0,0,0
 	};
+
+	Mesh Tri1(Vertices, 3);
 
 	GLuint VertexBufferObject = 0;
 	glGenBuffers(1, &VertexBufferObject);
@@ -93,15 +104,16 @@ int main(int arcg, char *argv[])
 	const char* VertexShaderCode =
 		"#version 450\n"
 		"in vec3 vp;"
+		"uniform mat4 model;"
 		"void main() {"
-		"  gl_Position = vec4(vp, 1.0);"
+		"  gl_Position = model * vec4(vp, 1.0);"
 		"}";
 
 	const char* FragmentShaderCode =
 		"#version 450\n"
 		"out vec4 frag_colour;"
 		"void main() {"
-		"  frag_colour = vec4(1.0, 1.0, 0.0, 1.0);"
+		"  frag_colour = vec4(0.0, 0.95, 0.0, 1.0);"
 		"}";
 
 	GLuint VertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -125,10 +137,17 @@ int main(int arcg, char *argv[])
 
 	while (true)
 	{
+
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glUseProgram(ShaderProgram);
-		glBindVertexArray(VertexArrayObject);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		
+		GLint modelLoc = glGetUniformLocation(ShaderProgram, "model");
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &Tri1.m_transform.GetModel()[0][0]);
+
+		Tri1.m_transform.setPos(vec3(0, 0, 0));
+		Tri1.m_transform.setRot(Tri1.m_transform.getRot() + vec3(0, 0, 5));
+		Tri1.m_transform.setScale(vec3(0.15, 0.7, 0.7));
+		Tri1.Draw();
 
 		SDL_Delay(16);
 
