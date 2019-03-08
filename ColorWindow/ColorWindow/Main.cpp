@@ -46,7 +46,7 @@ void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const string &
 
 int main(int arcg, char *argv[])
 {
-
+	vec2 wefwe;
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	openGL();
