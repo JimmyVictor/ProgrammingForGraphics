@@ -1,14 +1,9 @@
-﻿  Vertex.cpp
-c:\users\games\desktop\colorwindow\colorwindow\vertex.h(8): error C3646: 'Position': unknown override specifier
-c:\users\games\desktop\colorwindow\colorwindow\vertex.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\games\desktop\colorwindow\colorwindow\vertex.h(9): error C3646: 'TextureCoord': unknown override specifier
-c:\users\games\desktop\colorwindow\colorwindow\vertex.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\games\desktop\colorwindow\colorwindow\vertex.h(13): error C2039: 'Position': is not a member of 'Vertex'
-  c:\users\games\desktop\colorwindow\colorwindow\vertex.h(6): note: see declaration of 'Vertex'
-c:\users\games\desktop\colorwindow\colorwindow\vertex.h(14): error C2039: 'Position': is not a member of 'Vertex'
-  c:\users\games\desktop\colorwindow\colorwindow\vertex.h(6): note: see declaration of 'Vertex'
-c:\users\games\desktop\colorwindow\colorwindow\vertex.h(15): error C2039: 'Position': is not a member of 'Vertex'
-  c:\users\games\desktop\colorwindow\colorwindow\vertex.h(6): note: see declaration of 'Vertex'
-c:\users\games\desktop\colorwindow\colorwindow\vertex.cpp(6): error C2511: 'Vertex::Vertex(void)': overloaded member function not found in 'Vertex'
-  c:\users\games\desktop\colorwindow\colorwindow\vertex.h(6): note: see declaration of 'Vertex'
-c:\users\games\desktop\colorwindow\colorwindow\vertex.cpp(11): error C2600: 'Vertex::~Vertex': cannot define a compiler-generated special member function (must be declared in the class first)
+﻿  Main.cpp
+c:\users\rhukz\documents\github\programmingforgraphics\colorwindow\colorwindow\main.cpp(88): error C2661: 'Mesh::Mesh': no overloaded function takes 2 arguments
+  Mesh.cpp
+c:\users\rhukz\documents\github\programmingforgraphics\colorwindow\colorwindow\mesh.cpp : fatal error C1041: cannot open program database 'C:\Users\rhukz\Documents\GitHub\ProgrammingForGraphics\ColorWindow\ColorWindow\Debug\vc141.pdb'; if multiple CL.EXE write to the same .PDB file, please use /FS
+  Vertex.cpp
+c:\users\rhukz\documents\github\programmingforgraphics\colorwindow\colorwindow\vertex.cpp(6): error C2511: 'Vertex::Vertex(void)': overloaded member function not found in 'Vertex'
+  c:\users\rhukz\documents\github\programmingforgraphics\colorwindow\colorwindow\vertex.h(8): note: see declaration of 'Vertex'
+c:\users\rhukz\documents\github\programmingforgraphics\colorwindow\colorwindow\vertex.cpp(11): error C2600: 'Vertex::~Vertex': cannot define a compiler-generated special member function (must be declared in the class first)
+  Generating Code...
